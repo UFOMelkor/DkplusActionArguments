@@ -1,0 +1,7 @@
+<phpunit bootstrap="./bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="DkplusActionArguments Module Tests">
+            <directory>./DkpplusActionArgumentsTest</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

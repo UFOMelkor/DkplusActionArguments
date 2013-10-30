@@ -1,0 +1,53 @@
+<?php
+return array(
+    'DkplusActionArguments' => array(
+        'options' => array(
+            'guards' => array(
+                'DkplusActionArguments\Guard\AclGuard',
+                'DkplusActionArguments\Guard\ArgumentsGuard',
+            ),
+            'missing_arguments_template' => 'error/404-missing-arguments',
+            'cache_file_path' => __DIR__ . '/dkplus-action-arguments.spec.global.php',
+        ),
+        'controllers' => array(
+            'Application\Controller\BlogController' => array(
+                'loadAction' => array(
+                    'arguments' => array(
+                        array(
+                            'position'  => 0,
+                            'name'      => 'blog',
+                            'type'      => 'Application\Entity\Blog',
+                            'optional'  => false,
+                            'source'    => 'blog',
+                            'converter' => 'findOneByName',
+                        ),
+                    ),
+                    'guards' => array(
+                        array(
+                            'assertion'  => 'Application\Assertion\BlogOwner',
+                            'permission' => 'blog.view'
+                        )
+                    ),
+                ),
+                'detailsAction' => array(
+                    'arguments' => array(
+                        array(
+                            'position'  => 0,
+                            'name'      => 'historyPoint',
+                            'type'      => 'Application\Entity\HistoryPoint',
+                            'optional'  => false,
+                            'source'    => 'id',
+                            'converter' => 'find',
+                        ),
+                    ),
+                    'guards' => array(
+                        array(
+                            'assertion'  => 'Application\Assertion\BlogOwner',
+                            'permission' => 'blog.view'
+                        )
+                    ),
+                ),
+            ),
+        ),
+    ),
+);
