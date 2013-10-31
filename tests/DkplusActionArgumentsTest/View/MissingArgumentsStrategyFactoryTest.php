@@ -22,8 +22,8 @@ class MissingArgumentsStrategyFactoryTest extends TestCase
 
         $factory = new MissingArgumentsStrategyFactory();
         $this->assertInstanceOf(
-             'DkplusActionArguments\\View\\MissingArgumentsStrategy',
-             $factory->createService($services)
+            'DkplusActionArguments\\View\\MissingArgumentsStrategy',
+            $factory->createService($services)
         );
     }
 }

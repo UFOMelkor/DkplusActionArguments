@@ -22,9 +22,8 @@ class WriterFactoryTest extends TestCase
 
         $factory = new WriterFactory();
         $this->assertInstanceOf(
-             'DkplusActionArguments\\Specification\\Writer',
-             $factory->createService($services)
+            'DkplusActionArguments\\Specification\\Writer',
+            $factory->createService($services)
         );
     }
 }
- 
