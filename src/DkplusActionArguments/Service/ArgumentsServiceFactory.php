@@ -13,7 +13,7 @@ class ArgumentsServiceFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         return new ArgumentsService(
-            $serviceLocator->get('DkplusActionArguments\Service\MethodConfigurationProvider'),
+            $serviceLocator->get('DkplusActionArguments\\Service\\MethodConfigurationProvider'),
             $serviceLocator
         );
     }

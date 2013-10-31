@@ -12,6 +12,6 @@ class SpiffyAssertionPermissionConnectorFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return new SpiffyAssertionPermissionConnector($serviceLocator->get('SpiffyAuthorize\Service\RbacService'));
+        return new SpiffyAssertionPermissionConnector($serviceLocator->get('SpiffyAuthorize\\Service\\RbacService'));
     }
 }

@@ -12,9 +12,9 @@ class MethodConfigurationProviderFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $annotationBuilder    = $serviceLocator->get('DkplusActionArguments\Annotation\AnnotationBuilder');
-        $configurationFactory = $serviceLocator->get('DkplusActionArguments\Configuration\ConfigurationFactory');
-        $writer               = $serviceLocator->get('DkplusActionArguments\Specification\Writer');
+        $annotationBuilder    = $serviceLocator->get('DkplusActionArguments\\Annotation\\AnnotationBuilder');
+        $configurationFactory = $serviceLocator->get('DkplusActionArguments\\Configuration\\MethodFactory');
+        $writer               = $serviceLocator->get('DkplusActionArguments\\Specification\\Writer');
         $config               = $serviceLocator->get('Config');
         $specifications       = isset($config['DkplusActionArguments']['controllers'])
                               ? $config['DkplusActionArguments']['controllers']
