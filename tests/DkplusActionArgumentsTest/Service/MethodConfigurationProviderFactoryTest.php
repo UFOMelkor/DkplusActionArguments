@@ -34,8 +34,8 @@ class MethodConfigurationProviderFactoryTest extends TestCase
 
         $factory = new MethodConfigurationProviderFactory();
         $this->assertInstanceOf(
-             'DkplusActionArguments\\Service\\MethodConfigurationProvider',
-             $factory->createService($services)
+            'DkplusActionArguments\\Service\\MethodConfigurationProvider',
+            $factory->createService($services)
         );
     }
 }
