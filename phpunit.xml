@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<phpunit bootstrap="./bootstrap.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true"
+<phpunit bootstrap="./tests/bootstrap.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true"
          convertWarningsToExceptions="true" verbose="true" stopOnFailure="false" processIsolation="false"
          backupGlobals="false" syntaxCheck="true">
     <testsuites>
         <testsuite name="DkplusActionArguments Module Tests">
-            <directory>./DkplusActionArgumentsTest</directory>
+            <directory>./tests/DkplusActionArgumentsTest</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../src</directory>
+            <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
 </phpunit>
