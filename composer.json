@@ -4,10 +4,10 @@
     "minimum-stability": "stable",
     "authors": [
         {
-            "name":    "Oskar Bley",
-            "email":   "oskar@programming-php.net",
-            "hompage": "http://programming-php.net",
-            "role":    "developer"
+            "name":     "Oskar Bley",
+            "email":    "oskar@programming-php.net",
+            "homepage": "http://programming-php.net",
+            "role":     "developer"
         }
     ],
     "require": {
