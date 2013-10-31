@@ -1,6 +1,8 @@
 <?php
 namespace DkplusActionArgumentsTest\Annotation\TestAsset;
 
+use DkplusActionArguments\Annotation\Guard;
+
 class Controller
 {
     /**

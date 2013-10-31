@@ -11,4 +11,4 @@ if (file_exists('../vendor/autoload.php')) {
 }
 
 /* @var $loader \Composer\Autoload\ClassLoader */
-$loader->add('DkplusActionArgumentsTest\\', __DIR__);
+$loader->add('DkplusActionArgumentsTest', __DIR__);
