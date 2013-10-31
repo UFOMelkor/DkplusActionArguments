@@ -33,4 +33,3 @@ class ArgumentCheckerTest extends TestCase
         $this->assertFalse($checker->isMissing(new \stdClass()));
     }
 }
- 
