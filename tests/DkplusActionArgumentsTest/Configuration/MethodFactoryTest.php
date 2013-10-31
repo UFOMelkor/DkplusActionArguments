@@ -26,8 +26,8 @@ class MethodFactoryTest extends TestCase
     public function testShouldCreateNewMethodConfigurations()
     {
         $this->assertInstanceOf(
-             'DkplusActionArguments\\Configuration\\Method',
-             $this->methodFactory->createConfiguration(array())
+            'DkplusActionArguments\\Configuration\\Method',
+            $this->methodFactory->createConfiguration(array())
         );
     }
 
@@ -38,7 +38,7 @@ class MethodFactoryTest extends TestCase
                 array('permission' => null,   'assertion' => 'my-assertion'),
                 array('permission' => 'read', 'assertion' => 'another-assertion')
             )
-         ));
+        ));
         $this->assertArrayHasKey('read', $method->getAssertions());
         $this->assertContains('my-assertion', $method->getAssertions());
         $this->assertContains('another-assertion', $method->getAssertions());
@@ -62,4 +62,3 @@ class MethodFactoryTest extends TestCase
         ));
     }
 }
- 

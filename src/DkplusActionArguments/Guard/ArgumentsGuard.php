@@ -50,8 +50,11 @@ class ArgumentsGuard extends AbstractGuard
             return;
         }
 
-        $missingArguments = $this->guardService->getMissingArgumentNames($controllerClass, $method,
-                                                                         $event->getRouteMatch());
+        $missingArguments = $this->guardService->getMissingArgumentNames(
+            $controllerClass, $method,
+            $event->getRouteMatch()
+        );
+
         if (count($missingArguments) == 0) {
             return;
         }

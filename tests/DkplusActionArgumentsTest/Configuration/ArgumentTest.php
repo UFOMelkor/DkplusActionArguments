@@ -83,4 +83,3 @@ class ArgumentTest extends TestCase
         $this->assertTrue($argument->isMissing($value));
     }
 }
- 

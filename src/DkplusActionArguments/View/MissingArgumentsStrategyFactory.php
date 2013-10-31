@@ -13,4 +13,3 @@ class MissingArgumentsStrategyFactory implements FactoryInterface
         return new MissingArgumentsStrategy($options->getMissingArgumentsTemplate());
     }
 }
- 

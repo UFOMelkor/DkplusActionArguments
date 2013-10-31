@@ -84,4 +84,3 @@ class ConverterFactoryTest extends TestCase
         $this->assertNull($this->factory->create('foobar', 'string'));
     }
 }
- 

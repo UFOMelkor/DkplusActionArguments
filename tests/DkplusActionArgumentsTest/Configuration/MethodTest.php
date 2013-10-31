@@ -80,8 +80,8 @@ class MethodTest extends TestCase
 
         $this->method->addArgument($argument);
         $this->assertSame(
-             $this->method->assembleArgumentList($routeMatch),
-             $this->method->assembleArgumentList($routeMatch)
+            $this->method->assembleArgumentList($routeMatch),
+            $this->method->assembleArgumentList($routeMatch)
         );
     }
 

@@ -23,9 +23,8 @@ class MethodServiceFactoryTest extends TestCase
 
         $factory = new MethodServiceFactory();
         $this->assertInstanceOf(
-             'DkplusActionArguments\\Configuration\\MethodFactory',
-             $factory->createService($services)
+            'DkplusActionArguments\\Configuration\\MethodFactory',
+            $factory->createService($services)
         );
     }
 }
- 

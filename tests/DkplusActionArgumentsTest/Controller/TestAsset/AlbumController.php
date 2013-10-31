@@ -32,4 +32,3 @@ class AlbumController extends AbstractActionController
         );
     }
 }
- 

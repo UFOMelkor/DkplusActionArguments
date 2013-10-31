@@ -22,4 +22,3 @@ class CallbackConverterTest extends TestCase
         $this->assertSame($entity, $converter->convert($value));
     }
 }
- 

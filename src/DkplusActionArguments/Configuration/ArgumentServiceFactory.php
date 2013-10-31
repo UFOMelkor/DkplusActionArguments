@@ -15,4 +15,3 @@ class ArgumentServiceFactory implements FactoryInterface
         return new ArgumentFactory($serviceLocator->get('DkplusActionArguments\Converter\ConverterFactory'));
     }
 }
- 

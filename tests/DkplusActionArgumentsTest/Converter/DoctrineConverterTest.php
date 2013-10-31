@@ -21,4 +21,3 @@ class DoctrineConverterTest extends TestCase
         $this->assertSame($entity, $converter->convert($value));
     }
 }
- 

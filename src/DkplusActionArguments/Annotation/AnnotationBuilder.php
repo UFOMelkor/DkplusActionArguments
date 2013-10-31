@@ -107,9 +107,9 @@ class AnnotationBuilder
     {
         foreach ($annotations as $each) {
             $this->events->trigger(
-                 __FUNCTION__,
-                 $this,
-                 array('name' => $argumentName, 'spec' => $spec, 'annotation' => $each)
+                __FUNCTION__,
+                $this,
+                array('name' => $argumentName, 'spec' => $spec, 'annotation' => $each)
             );
         }
     }

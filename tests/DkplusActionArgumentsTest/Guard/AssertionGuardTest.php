@@ -83,9 +83,9 @@ class AssertionGuardTest extends TestCase
         $this->argumentsService->expects($this->once())
                                ->method('injectArgumentsIntoAssertions')
                                ->with(
-                                    get_class($controller),
-                                    'indexAction',
-                                    $this->isInstanceOf('Zend\\Mvc\\Router\\RouteMatch')
+                                   get_class($controller),
+                                   'indexAction',
+                                   $this->isInstanceOf('Zend\\Mvc\\Router\\RouteMatch')
                                );
 
         $event = $this->createEventMop('MyController', 'index');
@@ -93,4 +93,3 @@ class AssertionGuardTest extends TestCase
         $this->guard->onRoute($event);
     }
 }
- 

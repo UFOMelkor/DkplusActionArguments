@@ -19,9 +19,9 @@ class AssertionGuardFactoryTest extends TestCase
         $services->expects($this->any())
                  ->method('get')
                  ->will($this->returnValueMap(array(
-                                                   array('ControllerLoader', $controllerManager),
-                                                   array('DkplusActionArguments\Service\ArgumentsService', $argumentsService)
-                                              )));
+                    array('ControllerLoader', $controllerManager),
+                    array('DkplusActionArguments\Service\ArgumentsService', $argumentsService)
+                 )));
 
         $factory = new AssertionGuardFactory();
         $this->assertInstanceOf('DkplusActionArguments\\Guard\\AssertionGuard', $factory->createService($services));

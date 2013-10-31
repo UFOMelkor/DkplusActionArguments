@@ -165,4 +165,3 @@ class AnnotationListenerTest extends \PHPUnit_Framework_TestCase
         $this->listener->configureMapping($this->createEventMock($annotation, $spec));
     }
 }
- 

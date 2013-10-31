@@ -24,7 +24,7 @@ class RbacPermissionAssertionConnectorGuardTest extends TestCase
                                         ->disableOriginalConstructor()
                                         ->getMock();
         $this->connector         = $this->getMockForAbstractClass(
-                                        'DkplusActionArguments\\Service\\RbacAssertionPermissionConnector'
+            'DkplusActionArguments\\Service\\RbacAssertionPermissionConnector'
         );
         $this->guard             = new RbacPermissionAssertionConnectorGuard(
             $this->controllerManager,
@@ -85,9 +85,9 @@ class RbacPermissionAssertionConnectorGuardTest extends TestCase
         $this->argumentsService->expects($this->once())
                                ->method('injectArgumentsIntoAssertions')
                                ->with(
-                                    get_class($controller),
-                                    'indexAction',
-                                    $this->isInstanceOf('Zend\\Mvc\\Router\\RouteMatch')
+                                   get_class($controller),
+                                   'indexAction',
+                                   $this->isInstanceOf('Zend\\Mvc\\Router\\RouteMatch')
                                );
         $this->argumentsService->expects($this->any())->method('getAssertions')->will($this->returnValue(array()));
 
@@ -115,4 +115,3 @@ class RbacPermissionAssertionConnectorGuardTest extends TestCase
         $this->guard->onRoute($event);
     }
 }
- 

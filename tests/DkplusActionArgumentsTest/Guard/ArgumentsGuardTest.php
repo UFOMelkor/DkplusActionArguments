@@ -119,4 +119,3 @@ class ArgumentsGuardTest extends TestCase
         $this->guard->onRoute($event);
     }
 }
- 

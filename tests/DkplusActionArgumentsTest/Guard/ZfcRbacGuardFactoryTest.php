@@ -16,7 +16,8 @@ class ZfcRbacGuardFactoryTest extends TestCase
                                   ->disableOriginalConstructor()
                                   ->getMock();
         $connector         = $this->getMockForAbstractClass(
-                                  'DkplusActionArguments\\Service\\RbacAssertionPermissionConnector');
+            'DkplusActionArguments\\Service\\RbacAssertionPermissionConnector'
+        );
         $services          = $this->getMockForAbstractClass('Zend\\ServiceManager\\ServiceLocatorInterface');
         $services
             ->expects($this->any())

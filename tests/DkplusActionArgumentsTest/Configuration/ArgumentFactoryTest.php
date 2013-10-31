@@ -35,8 +35,8 @@ class ArgumentFactoryTest extends TestCase
             'converter' => null,
         );
         $this->assertInstanceOf(
-             'DkplusActionArguments\\Configuration\\Argument',
-             $this->argumentFactory->createConfiguration($spec)
+            'DkplusActionArguments\\Configuration\\Argument',
+            $this->argumentFactory->createConfiguration($spec)
         );
     }
 
