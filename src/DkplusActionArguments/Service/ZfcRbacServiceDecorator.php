@@ -8,6 +8,7 @@ use ZfcRbac\Assertion\AssertionInterface;
 use ZfcRbac\Firewall\AbstractFirewall;
 use ZfcRbac\Identity;
 use ZfcRbac\Provider\AbstractProvider;
+use ZfcRbac\Provider\ProviderInterface;
 use ZfcRbac\Service\Rbac;
 
 /**
@@ -22,6 +23,11 @@ class ZfcRbacServiceDecorator extends Rbac implements RbacAssertionPermissionCon
 
     /** @var AssertionInterface[] */
     private $assertions = array();
+
+    public function __construct(Rbac $decorated)
+    {
+        $this->decorated = $decorated;
+    }
 
     /**
      * @param  string                                   $permission
@@ -98,7 +104,7 @@ class ZfcRbacServiceDecorator extends Rbac implements RbacAssertionPermissionCon
      * @param AbstractProvider $provider
      * @return self
      */
-    public function addProvider(AbstractProvider $provider)
+    public function addProvider(ProviderInterface $provider)
     {
         $this->decorated->addProvider($provider);
         return $this;
