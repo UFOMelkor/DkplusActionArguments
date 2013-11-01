@@ -27,4 +27,3 @@ class ZfcRbacServiceDecoratorFactoryTest extends TestCase
         );
     }
 }
- 
