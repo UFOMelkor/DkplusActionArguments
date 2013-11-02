@@ -29,8 +29,8 @@ class WriterTest extends TestCase
         $writer        = new Writer($this->filePath);
         $writer->writeSpecification($specification);
         $this->assertEquals(
-             array('DkplusActionArguments' => array('controllers' => $specification)),
-             include $this->filePath
+            array('DkplusActionArguments' => array('controllers' => $specification)),
+            include $this->filePath
         );
     }
 }
