@@ -113,6 +113,6 @@ class MethodTest extends TestCase
 
         $this->method->addArgument($argumentA);
         $this->method->addArgument($argumentB);
-        $this->assertSame(array('foo'), $this->method->getMissingArgumentNames(array(null, 'bar')));
+        $this->assertSame(array('foo'), $this->method->getNamesOfMissingArguments(array(null, 'bar')));
     }
 }

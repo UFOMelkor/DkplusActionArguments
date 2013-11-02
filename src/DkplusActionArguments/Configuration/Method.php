@@ -77,7 +77,7 @@ class Method
      * @param array $values
      * @return string[]
      */
-    public function getMissingArgumentNames(array $values)
+    public function getNamesOfMissingArguments(array $values)
     {
         $result = array();
         foreach ($this->arguments as $position => $argument) {

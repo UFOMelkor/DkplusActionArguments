@@ -80,7 +80,7 @@ class ArgumentsGuardTest extends TestCase
         $event->expects($this->never())->method('setError');
 
         $this->argumentsService->expects($this->once())
-                               ->method('getMissingArgumentNames')
+                               ->method('getNamesOfMissingArguments')
                                ->with(get_class($controller), 'indexAction', $event->getRouteMatch())
                                ->will($this->returnValue(array()));
 
@@ -112,7 +112,7 @@ class ArgumentsGuardTest extends TestCase
               ->will($this->returnValue($application));
 
         $this->argumentsService->expects($this->once())
-                               ->method('getMissingArgumentNames')
+                               ->method('getNamesOfMissingArguments')
                                ->with(get_class($controller), 'indexAction', $event->getRouteMatch())
                                ->will($this->returnValue(array('foo')));
 

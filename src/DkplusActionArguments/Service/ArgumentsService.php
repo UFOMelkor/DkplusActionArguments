@@ -60,7 +60,6 @@ class ArgumentsService
     {
         foreach ($arguments as $name => $value) {
             $method = 'set' . ucfirst($name);
-
             if (method_exists($assertion, $method)) {
                 $assertion->$method($value);
             }
@@ -101,11 +100,11 @@ class ArgumentsService
      * @param RouteMatch $routeMatch
      * @return string[]
      */
-    public function getMissingArgumentNames($controllerClass, $method, RouteMatch $routeMatch)
+    public function getNamesOfMissingArguments($controllerClass, $method, RouteMatch $routeMatch)
     {
         $method    = $this->provider->computeMethodConfiguration($controllerClass, $method);
         $arguments = $method->assembleArgumentList($routeMatch);
 
-        return $method->getMissingArgumentNames($arguments);
+        return $method->getNamesOfMissingArguments($arguments);
     }
 }
