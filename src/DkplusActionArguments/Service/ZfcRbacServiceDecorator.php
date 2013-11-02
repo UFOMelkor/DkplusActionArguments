@@ -7,7 +7,6 @@ use Zend\Permissions\Rbac\Rbac as ZendRbac;
 use ZfcRbac\Assertion\AssertionInterface;
 use ZfcRbac\Firewall\AbstractFirewall;
 use ZfcRbac\Identity;
-use ZfcRbac\Provider\AbstractProvider;
 use ZfcRbac\Provider\ProviderInterface;
 use ZfcRbac\Service\Rbac;
 
@@ -101,7 +100,7 @@ class ZfcRbacServiceDecorator extends Rbac implements RbacAssertionPermissionCon
     }
 
     /**
-     * @param AbstractProvider $provider
+     * @param ProviderInterface $provider
      * @return self
      */
     public function addProvider(ProviderInterface $provider)
