@@ -14,7 +14,6 @@ class ZfcRbacServiceDecoratorFactory extends RbacFactory
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $rbacService = parent::createService($serviceLocator);
-        var_dump($rbacService);
         return new ZfcRbacServiceDecorator($rbacService);
     }
 }
