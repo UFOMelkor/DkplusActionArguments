@@ -26,21 +26,6 @@ class MissingArgumentsStrategy extends AbstractListenerAggregate
     }
 
     /**
-     * @param string $template
-     * @return void
-     */
-    public function setTemplate($template)
-    {
-        $this->template = $template;
-    }
-
-    /** @return string */
-    public function getTemplate()
-    {
-        return $this->template;
-    }
-
-    /**
      * @param EventManagerInterface $events
      * @return void
      */
@@ -78,18 +63,15 @@ class MissingArgumentsStrategy extends AbstractListenerAggregate
             'controller' => $event->getParam('controller'),
             'action'     => $event->getParam('action'),
             'route'      => $event->getParam('route'),
-            'arguments'  => $event->getParam('arguments'),
-            //'reason'     => $event->getParam('exception')->getMessage()
+            'arguments'  => $event->getParam('arguments')
         );
 
         $model = new ViewModel($viewVariables);
-        $model->setTemplate($this->getTemplate());
+        $model->setTemplate($this->template);
         $event->getViewModel()->addChild($model);
 
         $response = $response ? : new HttpResponse();
         $response->setStatusCode(404);
         $event->setResponse($response);
-        //$event->setResult('my-message');
-        //$event->stopPropagation(true);
     }
 }
