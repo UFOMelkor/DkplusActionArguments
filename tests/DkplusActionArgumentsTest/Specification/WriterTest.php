@@ -12,7 +12,7 @@ class WriterTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->filePath = __DIR__ . '/TestAsset/spec.config.php';
+        $this->filePath = __DIR__ . '/spec.config.php';
     }
 
     protected function tearDown()
