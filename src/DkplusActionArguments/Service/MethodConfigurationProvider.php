@@ -43,7 +43,7 @@ class MethodConfigurationProvider
     }
 
     /**
-     * @param string $classOrObject
+     * @param string|object $classOrObject
      * @param string $method
      * @return Method
      */

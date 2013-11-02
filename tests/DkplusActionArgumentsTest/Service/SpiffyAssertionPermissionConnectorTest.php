@@ -15,7 +15,6 @@ class SpiffyAssertionPermissionConnectorTest extends TestCase
              ->with('write', $assertion);
 
         $connector = new SpiffyAssertionPermissionConnector($rbac);
-
         $connector->connect('write', $assertion);
     }
 }
