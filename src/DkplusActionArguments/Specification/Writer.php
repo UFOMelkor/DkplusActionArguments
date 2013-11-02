@@ -21,12 +21,14 @@ class Writer
      * @param array $specification
      * @return void
      * @throws SpecificationWriteError in case it cannot write into the file.
+     * @link http://de.php.net/manual/en/function.file-put-contents.php#82934
      */
     public function writeSpecification(array $specification)
     {
         $content = var_export(array('DkplusActionArguments' => array('controllers' => $specification)), true);
-        if (file_put_contents($this->targetFilePath, "<?php\nreturn " . $content . ';') === false) {
+        if (@file_put_contents($this->targetFilePath . '.tmp', "<?php\nreturn " . $content . ';') === false) {
             throw new SpecificationWriteError($this->targetFilePath);
         }
+        rename($this->targetFilePath . '.tmp', $this->targetFilePath);
     }
 }

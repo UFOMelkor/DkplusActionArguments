@@ -33,4 +33,12 @@ class WriterTest extends TestCase
             include $this->filePath
         );
     }
+
+    public function testShouldThrowAnExceptionOnNotWritableFile()
+    {
+        $writer = new Writer('http://www.google.de/');
+
+        $this->setExpectedException('DkplusActionArguments\\Exception\\SpecificationWriteError');
+        $writer->writeSpecification(array('foo' => 'bar'));
+    }
 }
