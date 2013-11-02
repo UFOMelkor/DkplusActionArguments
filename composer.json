@@ -1,7 +1,8 @@
 {
-    "name":              "dkplus/action-arguments",
-    "description":       "Provides the ability to use variable action arguments.",
-    "minimum-stability": "stable",
+    "name":        "dkplus/action-arguments",
+    "description": "Provides the ability to use variable action arguments.",
+    keywords:      ["zf2", "zend framework", "action", "arguments", "controller", "parameter", "guards"],
+    "license":     "MIT",
     "authors": [
         {
             "name":     "Oskar Bley",
@@ -11,24 +12,24 @@
         }
     ],
     "require": {
-        "doctrine/common":                     ">=2.3.0",
-        "zendframework/zend-permissions-acl":  ">=2.2",
-        "zendframework/zend-permissions-rbac": ">=2.2",
-        "zendframework/zend-code":             ">=2.2",
-        "zendframework/zend-eventmanager":     ">=2.2",
-        "zendframework/zend-modulemanager":    ">=2.2",
+        "doctrine/common":                     "2.3.*",
+        "zendframework/zend-permissions-acl":  "2.2.*",
+        "zendframework/zend-permissions-rbac": "2.2.*",
+        "zendframework/zend-code":             "2.2.*",
+        "zendframework/zend-eventmanager":     "2.2.*",
+        "zendframework/zend-modulemanager":    "2.2.*",
         "zendframework/zftool":                "dev-master"
     },
     "require-dev": {
-        "zf-commons/zfc-rbac":                ">=0.2.1",
+        "zf-commons/zfc-rbac":                "0.2.*",
         "spiffy/spiffy-authorize":            "dev-master",
-        "bjyoungblood/bjy-authorize":         ">=1.4",
+        "bjyoungblood/bjy-authorize":         "1.4.*",
         "zendframework/zf2-tutorial":         "dev-master",
-        "phpunit/phpunit":                    "~3.7",
         "zendframework/zend-developer-tools": "0.*",
         "zf-commons/zfc-user":                "0.*",
         "squizlabs/php_codesniffer":          "1.4.*",
-        "satooshi/php-coveralls":             "~0.6"
+        "satooshi/php-coveralls":             "~0.6",
+        "phpunit/phpunit":                    "~3.7"
     },
     "repositories": [
         {
