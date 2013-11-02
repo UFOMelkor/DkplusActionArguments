@@ -113,4 +113,3 @@ class MethodConfigurationProviderTest extends TestCase
         $this->assertSame($configuration, $service->computeMethodConfiguration($controller, 'indexAction'));
     }
 }
- 
