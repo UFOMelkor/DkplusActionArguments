@@ -1,7 +1,7 @@
 {
     "name":        "dkplus/action-arguments",
     "description": "Provides the ability to use variable action arguments.",
-    keywords:      ["zf2", "zend framework", "action", "arguments", "controller", "parameter", "guards"],
+    "keywords":    ["zf2", "zend framework", "action", "arguments", "controller", "parameter", "guards"],
     "license":     "MIT",
     "authors": [
         {
