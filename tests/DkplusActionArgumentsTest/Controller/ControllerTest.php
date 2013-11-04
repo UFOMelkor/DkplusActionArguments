@@ -17,7 +17,9 @@ class ControllerTest extends TestCase
 
     protected function setUp()
     {
-        $this->setApplicationConfig(include __DIR__ . '/../../DkplusActionArgumentsTestModule/config/application.config.php');
+        $this->setApplicationConfig(
+             include __DIR__ . '/../../DkplusActionArgumentsTestModule/config/application.config.php'
+        );
         parent::setUp();
 
         $this->repository    = $this->getMockForAbstractClass('Doctrine\\Common\\Persistence\\ObjectRepository');
@@ -29,6 +31,16 @@ class ControllerTest extends TestCase
         $serviceManager = $this->getApplicationServiceLocator();
         $serviceManager->setService('Doctrine\\ORM\\EntityManager', $this->entityManager);
         $serviceManager->setService('myRepository', $this->repository);
+    }
+
+    public static function tearDownAfterClass()
+    {
+        parent::tearDownAfterClass();
+        $specFile = __DIR__
+                  . '/../../DkplusActionArgumentsTestModule/config/autoload/dkplus-action-arguments.spec.global.php';
+        if (file_exists($specFile)) {
+            unlink($specFile);
+        }
     }
 
     public function testShouldFindAnEntityByIdWithoutMapping()
