@@ -18,7 +18,7 @@ class ControllerTest extends TestCase
     protected function setUp()
     {
         $this->setApplicationConfig(
-             include __DIR__ . '/../../DkplusActionArgumentsTestModule/config/application.config.php'
+            include __DIR__ . '/../../DkplusActionArgumentsTestModule/config/application.config.php'
         );
         parent::setUp();
 
