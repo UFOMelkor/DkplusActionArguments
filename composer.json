@@ -1,14 +1,14 @@
 {
-    "name":        "dkplus/action-arguments",
-    "description": "Provides the ability to use variable action arguments.",
-    "keywords":    ["zf2", "zend framework", "action", "arguments", "controller", "parameter", "guards"],
-    "license":     "MIT",
+    "name":              "dkplus/action-arguments",
+    "description":       "Provides the ability to use variable action arguments.",
+    "minimum-stability": "stable",
+    "keywords":          ["zf2", "zend framework", "action", "arguments", "controller", "parameter", "guards"],
+    "license":           "MIT",
     "authors": [
         {
             "name":     "Oskar Bley",
             "email":    "oskar@programming-php.net",
-            "homepage": "http://programming-php.net",
-            "role":     "developer"
+            "homepage": "http://programming-php.net"
         }
     ],
     "require": {
@@ -17,26 +17,22 @@
         "zendframework/zend-permissions-rbac": "2.2.*",
         "zendframework/zend-code":             "2.2.*",
         "zendframework/zend-eventmanager":     "2.2.*",
-        "zendframework/zend-modulemanager":    "2.2.*",
-        "zendframework/zftool":                "dev-master"
+        "zendframework/zend-modulemanager":    "2.2.*"
     },
     "require-dev": {
+        "zendframework/zend-config":          "2.2.*",
+        "zendframework/zend-console":         "2.2.*",
+        "zendframework/zend-serializer":      "2.2.*",
+
+        "zendframework/zend-test":            "2.2.*",
         "zf-commons/zfc-rbac":                "0.2.*",
         "spiffy/spiffy-authorize":            "dev-master",
         "bjyoungblood/bjy-authorize":         "1.4.*",
-        "zendframework/zf2-tutorial":         "dev-master",
-        "zendframework/zend-developer-tools": "0.*",
         "zf-commons/zfc-user":                "0.*",
         "squizlabs/php_codesniffer":          "1.4.*",
         "satooshi/php-coveralls":             "~0.6",
         "phpunit/phpunit":                    "~3.7"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/zendframework/zf2-tutorial"
-        }
-    ],
     "autoload": {
         "classmap": ["src/"]
     }
