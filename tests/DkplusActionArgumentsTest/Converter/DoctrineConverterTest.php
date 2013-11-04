@@ -20,4 +20,16 @@ class DoctrineConverterTest extends TestCase
         $converter = new DoctrineConverter($repository, 'find');
         $this->assertSame($entity, $converter->convert($value));
     }
+
+    public function testShouldUseTheFindMethodAsDefault()
+    {
+        $value      = 5;
+        $repository = $this->getMockForAbstractClass('Doctrine\\Common\\Persistence\\ObjectRepository');
+        $repository->expects($this->once())
+                   ->method('find')
+                   ->with($value);
+
+        $converter = new DoctrineConverter($repository);
+        $converter->convert($value);
+    }
 }

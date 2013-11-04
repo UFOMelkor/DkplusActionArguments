@@ -53,4 +53,35 @@ class ArgumentFactoryTest extends TestCase
         $this->converterFactory->expects($this->once())->method('create')->with('findOneByName', 'User');
         $this->argumentFactory->createConfiguration($spec);
     }
+
+    public function testShouldNotRequireAConverterValue()
+    {
+        $spec = array(
+            'source'    => 'name',
+            'position'  => 0,
+            'name'      => 'user',
+            'type'      => 'User',
+            'optional'  => true,
+        );
+        $this->assertInstanceOf(
+             'DkplusActionArguments\\Configuration\\Argument',
+             $this->argumentFactory->createConfiguration($spec)
+        );
+    }
+
+    public function testShouldNotRequireASourceValue()
+    {
+        $spec = array(
+            'position'  => 0,
+            'name'      => 'user',
+            'type'      => 'User',
+            'optional'  => true,
+            'converter' => 'findOneByName',
+        );
+        $this->converterFactory->expects($this->once())->method('create')->with('findOneByName', 'User');
+        $this->assertInstanceOf(
+             'DkplusActionArguments\\Configuration\\Argument',
+             $this->argumentFactory->createConfiguration($spec)
+        );
+    }
 }

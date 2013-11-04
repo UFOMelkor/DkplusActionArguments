@@ -55,4 +55,15 @@ class ControllerTest extends TestCase
         $this->assertResponseStatusCode(200);
         $this->assertQueryContentContains('b', 'Hans');
     }
+
+    public function testShouldResultInA404ResponseIfTheUserCouldNotBeFound()
+    {
+        $this->repository->expects($this->once())
+                         ->method('find')
+                         ->with(6)
+                         ->will($this->returnValue(null));
+
+        $this->dispatch('/view/6');
+        $this->assertResponseStatusCode(404);
+    }
 }
