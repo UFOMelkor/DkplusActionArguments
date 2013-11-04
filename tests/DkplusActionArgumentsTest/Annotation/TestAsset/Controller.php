@@ -11,4 +11,8 @@ class Controller
     public function dummyAction(Controller $controller = null)
     {
     }
+
+    public function fummyAction(Controller $controller = null)
+    {
+    }
 }

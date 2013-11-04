@@ -77,14 +77,9 @@ class AnnotationBuilder
     {
         $annotations = $reflection->getAnnotations($this->annotationManager);
 
-        $spec['guards'] = array();
-        foreach ($annotations as $each) {
-            $this->events->trigger(__FUNCTION__, $this, array('spec' => $spec, 'annotation' => $each));
-        }
-
+        $spec['guards']    = array();
         $spec['arguments'] = array();
         foreach ($reflection->getParameters() as $each) {
-
             $argumentSpec             = new ArrayObject();
             $argumentSpec['type']     = $each->getType();
             $argumentSpec['default']  = $each->isOptional() ? $each->getDefaultValue() : null;
@@ -92,8 +87,18 @@ class AnnotationBuilder
             $argumentSpec['position'] = $each->getPosition();
             $argumentSpec['name']     = $each->getName();
             $spec['arguments'][]      = $argumentSpec;
+        }
 
-            $this->configureArgument($argumentSpec, $annotations, $each->getName());
+        if (!$annotations) {
+            return;
+        }
+
+        foreach ($annotations as $each) {
+            $this->events->trigger(__FUNCTION__, $this, array('spec' => $spec, 'annotation' => $each));
+        }
+
+        foreach ($spec['arguments'] as $each) {
+            $this->configureArgument($each, $annotations, $each['name']);
         }
     }
 

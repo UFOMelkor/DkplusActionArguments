@@ -60,6 +60,20 @@ class AnnotationBuilderTest extends TestCase
         $this->assertInternalType('array', $result);
     }
 
+    public function testShouldAlsoProvideMinimalSpecificationsWithoutAnnotations()
+    {
+        $annotationManager = new AnnotationManager();
+        $parser            = new DoctrineAnnotationParser();
+
+        $builder = new AnnotationBuilder($this->events, $annotationManager, $parser);
+        $result  = $builder->getMethodSpecification(
+            'DkplusActionArgumentsTest\\Annotation\\TestAsset\\Controller',
+            'fummyAction'
+        );
+
+        $this->assertArrayHasKey('arguments', $result);
+    }
+
     public function testShouldProvideArgumentSpecification()
     {
         $annotationManager = new AnnotationManager();
