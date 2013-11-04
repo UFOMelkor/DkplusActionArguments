@@ -64,8 +64,8 @@ class ArgumentFactoryTest extends TestCase
             'optional'  => true,
         );
         $this->assertInstanceOf(
-             'DkplusActionArguments\\Configuration\\Argument',
-             $this->argumentFactory->createConfiguration($spec)
+            'DkplusActionArguments\\Configuration\\Argument',
+            $this->argumentFactory->createConfiguration($spec)
         );
     }
 
@@ -80,8 +80,8 @@ class ArgumentFactoryTest extends TestCase
         );
         $this->converterFactory->expects($this->once())->method('create')->with('findOneByName', 'User');
         $this->assertInstanceOf(
-             'DkplusActionArguments\\Configuration\\Argument',
-             $this->argumentFactory->createConfiguration($spec)
+            'DkplusActionArguments\\Configuration\\Argument',
+            $this->argumentFactory->createConfiguration($spec)
         );
     }
 }
