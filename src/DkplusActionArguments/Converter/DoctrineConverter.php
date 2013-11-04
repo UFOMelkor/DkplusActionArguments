@@ -17,11 +17,12 @@ class DoctrineConverter extends Converter
     /**
      * @param ObjectRepository $repository
      * @param string           $method
+     * @todo test null
      */
-    public function __construct(ObjectRepository $repository, $method)
+    public function __construct(ObjectRepository $repository, $method = null)
     {
         $this->repository = $repository;
-        $this->method     = $method;
+        $this->method     = $method ? $method : 'find';
     }
 
     /**

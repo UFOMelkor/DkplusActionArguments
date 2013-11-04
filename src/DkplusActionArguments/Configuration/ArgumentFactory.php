@@ -22,14 +22,16 @@ class ArgumentFactory
     /**
      * @param array $spec
      * @return Argument
+     * @todo test missing source and converter
      */
     public function createConfiguration(array $spec)
     {
-        $source    = $spec['source'];
+        $source    = isset($spec['source']) ? $spec['source'] : $spec['name'];
         $position  = (int) $spec['position'];
         $name      = $spec['name'];
         $checker   = new ArgumentChecker($spec['type'], $spec['optional']);
-        $converter = $this->converterFactory->create($spec['converter'], $spec['type']);
+        $converterName = isset($spec['converter']) ? $spec['converter'] : null;
+        $converter = $this->converterFactory->create($converterName, $spec['type']);
 
         return new Argument($source, $position, $name, $checker, $converter);
     }

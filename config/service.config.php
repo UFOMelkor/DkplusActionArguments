@@ -4,6 +4,9 @@ return array(
         'DkplusActionArguments\Guard\AclGuard'                  => 'DkplusActionArguments\Guard\AssertionGuard',
         'DkplusActionArguments\Service\ZfcRbacServiceDecorator' => 'ZfcRbac\Service\Rbac',
     ),
+    'invokables' => array(
+        'DkplusActionArguments\Annotation\AnnotationListener' => 'DkplusActionArguments\Annotation\AnnotationListener'
+    ),
     'factories' => array(
         'DkplusActionArguments\Annotation\AnnotationBuilder'
             => 'DkplusActionArguments\Annotation\AnnotationBuilderFactory',
