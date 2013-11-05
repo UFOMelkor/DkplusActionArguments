@@ -46,6 +46,11 @@ class Module implements ConfigProviderInterface
                     ),
                 )
             ),
+            'service_manager' => array(
+                'invokables' => array(
+                    'AclAssertion' => 'DkplusActionArgumentsTestModule\Assertion\AclAssertion'
+                )
+            ),
             'controllers' => array(
                 'invokables' => array(
                     'Index' => 'DkplusActionArgumentsTestModule\Controller\IndexController'

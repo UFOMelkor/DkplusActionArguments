@@ -12,6 +12,9 @@ class IndexController extends AbstractActionController
         return array('user' => $user);
     }
 
+    /**
+     * @MapParam()
+     */
     public function viewAllAction()
     {
         return new ViewModel();
