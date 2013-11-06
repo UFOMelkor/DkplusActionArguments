@@ -1,9 +1,9 @@
 <?php
 namespace DkplusActionArgumentsTestModule\Controller;
 
+use DkplusActionArguments\Annotation\MapParam;
 use DkplusActionArguments\Controller\AbstractActionController;
 use DkplusActionArgumentsTestModule\Entity\User;
-use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
@@ -13,10 +13,10 @@ class IndexController extends AbstractActionController
     }
 
     /**
-     * @MapParam()
+     * @MapParam(to="users", using={"myRepository", "findAll"})
      */
-    public function viewAllAction()
+    public function viewAllAction(array $users)
     {
-        return new ViewModel();
+        return array('users' => $users);
     }
 }

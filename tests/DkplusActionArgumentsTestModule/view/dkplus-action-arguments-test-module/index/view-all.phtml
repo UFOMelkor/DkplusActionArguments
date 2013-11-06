@@ -1,2 +1,6 @@
 <h2>View all</h2>
- 
+<ul>
+<?php foreach ($this->users as $user): ?>
+    <li><?= $user->getName(); ?></li>
+<?php endforeach; ?>
+</ul>

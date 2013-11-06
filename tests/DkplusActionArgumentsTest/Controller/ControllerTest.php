@@ -66,4 +66,18 @@ class ControllerTest extends TestCase
         $this->dispatch('/view/6');
         $this->assertResponseStatusCode(404);
     }
+
+    public function testShouldConvertWithoutRouteParameter()
+    {
+        $userA = new User(5, 'Hans');
+        $userB = new User(6, 'Dirk');
+        $this->repository->expects($this->once())
+                         ->method('findAll')
+                         ->will($this->returnValue(array($userA, $userB)));
+
+        $this->dispatch('/view-all');
+        $this->assertResponseStatusCode(200);
+        $this->assertQueryContentContains('li', 'Hans');
+        $this->assertQueryContentContains('li', 'Dirk');
+    }
 }
