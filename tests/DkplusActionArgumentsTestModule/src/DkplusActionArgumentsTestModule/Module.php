@@ -21,6 +21,19 @@ class Module implements ConfigProviderInterface
         return array(
             'router' => array(
                 'routes' => array(
+                    'view-by-name' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'       => '/view/:name',
+                            'constraints' => array(
+                                'name' => '[a-zA-Z]*'
+                            ),
+                            'defaults'    => array(
+                                'controller' => 'Index',
+                                'action'     => 'view-single'
+                            )
+                        )
+                    ),
                     'view' => array(
                         'type'    => 'Segment',
                         'options' => array(
@@ -67,9 +80,9 @@ class Module implements ConfigProviderInterface
                     'error/404'     => __DIR__ . '/../../view/error/404.phtml',
                     'error/index'   => __DIR__ . '/../../view/error/index.phtml',
                     'dkplus-action-arguments-test-module/index/view'
-                    => __DIR__ . '/../../view/dkplus-action-arguments-test-module/index/view.phtml',
+                        => __DIR__ . '/../../view/dkplus-action-arguments-test-module/index/view.phtml',
                     'dkplus-action-arguments-test-module/index/view-all'
-                    => __DIR__ . '/../../view/dkplus-action-arguments-test-module/index/view-all.phtml',
+                        => __DIR__ . '/../../view/dkplus-action-arguments-test-module/index/view-all.phtml',
                 ),
                 'template_path_stack' => array(
                     __DIR__ . '/../../view',

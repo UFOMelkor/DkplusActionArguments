@@ -22,7 +22,10 @@ class ControllerTest extends TestCase
         );
         parent::setUp();
 
-        $this->repository    = $this->getMockForAbstractClass('Doctrine\\Common\\Persistence\\ObjectRepository');
+        $repositoryMethods   = array('find', 'findAll', 'findBy', 'findOneBy', 'getClassName', 'findOneByName');
+        $this->repository    = $this->getMockBuilder('Doctrine\\Common\\Persistence\\ObjectRepository')
+                                    ->setMethods($repositoryMethods)
+                                    ->getMock();
         $this->entityManager = $this->getMockForAbstractClass('Doctrine\\Common\\Persistence\\ObjectManager');
         $this->entityManager->expects($this->any())
                             ->method('getRepository')
@@ -65,6 +68,18 @@ class ControllerTest extends TestCase
 
         $this->dispatch('/view/6');
         $this->assertResponseStatusCode(404);
+    }
+
+    public function testShouldFindAnEntityWithMapping()
+    {
+        $user = new User(5, 'Hans');
+        $this->repository->expects($this->once())
+                         ->method('findOneByName')
+                         ->with('hans')
+                         ->will($this->returnValue($user));
+        $this->dispatch('/view/hans');
+        $this->assertResponseStatusCode(200);
+        $this->assertQueryContentContains('b', 'Hans');
     }
 
     public function testShouldConvertWithoutRouteParameter()
