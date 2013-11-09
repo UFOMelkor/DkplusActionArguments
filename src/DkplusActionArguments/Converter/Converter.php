@@ -10,5 +10,5 @@ abstract class Converter
      * @param mixed $value
      * @return mixed
      */
-    abstract public function convert($value);
+    abstract public function apply($value);
 }

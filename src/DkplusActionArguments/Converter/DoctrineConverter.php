@@ -28,7 +28,7 @@ class DoctrineConverter extends Converter
      * @param mixed $value
      * @return mixed the entity
      */
-    public function convert($value)
+    public function apply($value)
     {
         return call_user_func(array($this->repository, $this->method), $value);
     }

@@ -59,7 +59,7 @@ class Argument
     {
         $value = $routeMatch->getParam($this->source);
         if ($this->converter) {
-            $value = $this->converter->convert($value);
+            $value = $this->converter->apply($value);
         }
         return $value;
     }

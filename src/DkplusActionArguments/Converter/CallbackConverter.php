@@ -21,7 +21,7 @@ class CallbackConverter extends Converter
      * @param mixed $value
      * @return mixed
      */
-    public function convert($value)
+    public function apply($value)
     {
         return call_user_func($this->callback, $value);
     }
