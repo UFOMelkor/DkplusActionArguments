@@ -1,5 +1,5 @@
 <?php
-namespace DkplusActionArgumentsTest;
+namespace DkplusActionArgumentsTest\Configuration;
 
 use DkplusActionArguments\Configuration\Argument;
 use PHPUnit_Framework_TestCase as TestCase;
@@ -63,7 +63,7 @@ class ArgumentTest extends TestCase
 
         $convertedParam = new \stdClass();
         $this->converter->expects($this->once())
-                        ->method('convert')
+                        ->method('apply')
                         ->with($param)
                         ->will($this->returnValue($convertedParam));
 

@@ -1,5 +1,5 @@
 <?php
-namespace DkplusActionArgumentsTest;
+namespace DkplusActionArgumentsTest\Configuration;
 
 use DkplusActionArguments\Configuration\ArgumentChecker;
 use PHPUnit_Framework_TestCase as TestCase;
