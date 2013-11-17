@@ -123,7 +123,7 @@ class IndexController extends AbstractActionController
 ## Installation
 
 Installation of this module uses composer. For composer documentation, please refer to
-[http://getcomposer.org/](getcomposer.org).
+[getcomposer.org](http://getcomposer.org/).
 
 `php composer.phar require dkplus/action-arguments`
 
@@ -138,6 +138,7 @@ After installing copy `config/dkplus-action-arguments.global.php.dist` to
  - [x] Init named arguments
  - [x] Add Argument converter
  - [x] Support for BjyAuthorize, SpiffyAuthorize, ZfcRbac
+ - [ ] Better documentation
  - [ ] Add tests for BjyAuthorize-, SpiffyAuthorize and ZfcRbac-Support
  - [ ] Find proper class names
  - [ ] Reduce code complexity
