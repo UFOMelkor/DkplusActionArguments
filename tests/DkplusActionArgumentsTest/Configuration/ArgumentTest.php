@@ -64,10 +64,38 @@ class ArgumentTest extends TestCase
         $convertedParam = new \stdClass();
         $this->converter->expects($this->once())
                         ->method('apply')
-                        ->with($param)
+                        ->with(array($param))
                         ->will($this->returnValue($convertedParam));
 
         $argument = new Argument(self::SOURCE, self::POSITION, self::NAME, $this->checker, $this->converter);
+        $this->assertSame($convertedParam, $argument->grabValue($routeMatch));
+    }
+
+    public function testCanConvertValuesWithMultipleSources()
+    {
+        $routeMatch = $this->getMockBuilder('Zend\\Mvc\\Router\\RouteMatch')->disableOriginalConstructor()->getMock();
+        $routeMatch->expects($this->any())
+                   ->method('getParam')
+                   ->will($this->returnValueMap(
+                       array(
+                           array('source1', null, 'value1'),
+                           array('source2', null, 'value2')
+                       )
+                   ));
+
+        $convertedParam = new \stdClass();
+        $this->converter->expects($this->once())
+                        ->method('apply')
+                        ->with(array('value1', 'value2'))
+                        ->will($this->returnValue($convertedParam));
+
+        $argument = new Argument(
+            array('source1', 'source2'),
+            self::POSITION,
+            self::NAME,
+            $this->checker,
+            $this->converter
+        );
         $this->assertSame($convertedParam, $argument->grabValue($routeMatch));
     }
 

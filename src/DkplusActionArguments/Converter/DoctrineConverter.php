@@ -25,11 +25,11 @@ class DoctrineConverter extends Converter
     }
 
     /**
-     * @param mixed $value
+     * @param array $values
      * @return mixed the entity
      */
-    public function apply($value)
+    public function apply(array $values)
     {
-        return call_user_func(array($this->repository, $this->method), $value);
+        return call_user_func_array(array($this->repository, $this->method), $values);
     }
 }

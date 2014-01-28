@@ -18,11 +18,11 @@ class CallbackConverter extends Converter
     }
 
     /**
-     * @param mixed $value
+     * @param array $value
      * @return mixed
      */
-    public function apply($value)
+    public function apply(array $values)
     {
-        return call_user_func($this->callback, $value);
+        return call_user_func_array($this->callback, $values);
     }
 }

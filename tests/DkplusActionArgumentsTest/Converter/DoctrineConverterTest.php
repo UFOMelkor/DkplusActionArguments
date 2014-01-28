@@ -18,7 +18,7 @@ class DoctrineConverterTest extends TestCase
                    ->will($this->returnValue($entity));
 
         $converter = new DoctrineConverter($repository, 'find');
-        $this->assertSame($entity, $converter->apply($value));
+        $this->assertSame($entity, $converter->apply(array($value)));
     }
 
     public function testShouldUseTheFindMethodAsDefault()
@@ -30,6 +30,6 @@ class DoctrineConverterTest extends TestCase
                    ->with($value);
 
         $converter = new DoctrineConverter($repository);
-        $converter->apply($value);
+        $converter->apply(array($value));
     }
 }

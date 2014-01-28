@@ -18,8 +18,8 @@ class MapParam
     public $using;
 
     /**
-     * @var string If the name of the parameter grabbed from the route match is not equal to the action-argument you
-     *             can configure this here (optional).
+     * @var mixed If the name of the parameter grabbed from the route match is not equal to the action-argument you
+     *             can configure this here (optional). You can also pass multiple arguments.
      */
     public $from;
 

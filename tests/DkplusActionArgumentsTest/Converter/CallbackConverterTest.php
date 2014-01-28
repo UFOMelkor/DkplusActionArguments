@@ -19,6 +19,6 @@ class CallbackConverterTest extends TestCase
                 ->will($this->returnValue($entity));
 
         $converter = new CallbackConverter(array($service, 'findOneByName'));
-        $this->assertSame($entity, $converter->apply($value));
+        $this->assertSame($entity, $converter->apply(array($value)));
     }
 }

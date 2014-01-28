@@ -12,7 +12,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  */
 class Argument
 {
-    /** @var string */
+    /** @var string[] */
     private $source;
     /** @var int */
     private $position;
@@ -24,7 +24,7 @@ class Argument
     private $checker;
 
     /**
-     * @param string          $source
+     * @param string|string[] $source
      * @param int             $position
      * @param string          $name
      * @param ArgumentChecker $checker
@@ -32,7 +32,7 @@ class Argument
      */
     public function __construct($source, $position, $name, ArgumentChecker $checker, Converter $converter = null)
     {
-        $this->source    = $source;
+        $this->source    = (array) $source;
         $this->position  = $position;
         $this->name      = $name;
         $this->checker   = $checker;
@@ -57,11 +57,16 @@ class Argument
      */
     public function grabValue(RouteMatch $routeMatch)
     {
-        $value = $routeMatch->getParam($this->source);
-        if ($this->converter) {
-            $value = $this->converter->apply($value);
+        $values = array();
+        foreach ($this->source as $eachSource) {
+            $values[] = $routeMatch->getParam($eachSource);
         }
-        return $value;
+
+        if (!$this->converter) {
+            return array_shift($values);
+        }
+
+        return $this->converter->apply($values);
     }
 
     /**

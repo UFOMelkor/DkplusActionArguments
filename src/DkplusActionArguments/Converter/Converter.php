@@ -7,8 +7,8 @@ namespace DkplusActionArguments\Converter;
 abstract class Converter
 {
     /**
-     * @param mixed $value
+     * @param array $values
      * @return mixed
      */
-    abstract public function apply($value);
+    abstract public function apply(array $values);
 }
