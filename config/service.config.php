@@ -1,8 +1,7 @@
 <?php
 return array(
     'aliases' => array(
-        'DkplusActionArguments\Guard\AclGuard'                  => 'DkplusActionArguments\Guard\AssertionGuard',
-        'DkplusActionArguments\Service\ZfcRbacServiceDecorator' => 'ZfcRbac\Service\Rbac',
+        'DkplusActionArguments\Guard\AclGuard' => 'DkplusActionArguments\Guard\AssertionGuard',
     ),
     'invokables' => array(
         'DkplusActionArguments\Annotation\AnnotationListener' => 'DkplusActionArguments\Annotation\AnnotationListener'
@@ -30,6 +29,10 @@ return array(
             => 'DkplusActionArguments\Service\ArgumentsServiceFactory',
         'DkplusActionArguments\Service\MethodConfigurationProvider'
             => 'DkplusActionArguments\Service\MethodConfigurationProviderFactory',
+        'DkplusActionArguments\Service\SpiffyAssertionPermissionConnector'
+            => 'DkplusActionArguments\Service\SpiffyAssertionPermissionConnectorFactory',
+        'DkplusActionArguments\Service\ZfcRbacServiceDecorator'
+            => 'DkplusActionArguments\Service\ZfcRbacServiceDecoratorFactory',
 
         'DkplusActionArguments\Specification\Writer'
             => 'DkplusActionArguments\Specification\WriterFactory',

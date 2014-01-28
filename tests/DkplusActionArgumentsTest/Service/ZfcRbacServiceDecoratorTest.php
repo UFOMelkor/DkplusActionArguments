@@ -15,7 +15,9 @@ class ZfcRbacServiceDecoratorTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->rbac      = $this->getMock('ZfcRbac\\Service\\Rbac');
+        $this->rbac      = $this->getMockBuilder('ZfcRbac\\Service\\AuthorizationService')
+                                ->disableOriginalConstructor()
+                                ->getMock();
         $this->decorator = new ZfcRbacServiceDecorator($this->rbac);
     }
 
@@ -55,108 +57,5 @@ class ZfcRbacServiceDecoratorTest extends TestCase
                    ->will($this->returnValue(true));
 
         $this->assertTrue($this->decorator->isGranted('write'));
-    }
-
-    public function testShouldLeaveTheSetEventManagerMethodUndecorated()
-    {
-        $events = $this->getMockForAbstractClass('Zend\\EventManager\\EventManagerInterface');
-        $this->rbac->expects($this->once())
-                   ->method('setEventManager')
-                   ->with($events);
-
-        $this->assertSame($this->decorator, $this->decorator->setEventManager($events));
-    }
-
-    public function testShouldLeaveTheGetEventManagerMethodUndecorated()
-    {
-        $events = $this->getMockForAbstractClass('Zend\\EventManager\\EventManagerInterface');
-        $this->rbac->expects($this->once())
-                   ->method('getEventManager')
-                   ->will($this->returnValue($events));
-
-        $this->assertSame($events, $this->decorator->getEventManager());
-    }
-
-    public function testShouldLeaveTheGetRoleMethodUndecorated()
-    {
-        $role = 'myRole';
-        $this->rbac->expects($this->once())
-                   ->method('hasRole')
-                   ->with($role)
-                   ->will($this->returnValue(true));
-
-        $this->assertTrue($this->decorator->hasRole($role));
-    }
-
-    public function testShouldLeaveTheGetFirewallMethodUndecorated()
-    {
-        $name     = 'myFirewall';
-        $firewall = $this->getMockForAbstractClass('ZfcRbac\\Firewall\\AbstractFirewall');
-        $this->rbac->expects($this->once())
-                   ->method('getFirewall')
-                   ->with($name)
-                   ->will($this->returnValue($firewall));
-
-        $this->assertSame($firewall, $this->decorator->getFirewall($name));
-    }
-
-    public function testShouldLeaveTheAddFirewallMethodUndecorated()
-    {
-        $firewall = $this->getMockForAbstractClass('ZfcRbac\\Firewall\\AbstractFirewall');
-        $this->rbac->expects($this->once())
-                   ->method('addFirewall')
-                   ->with($firewall);
-
-        $this->assertSame($this->decorator, $this->decorator->addFirewall($firewall));
-    }
-
-    public function testShouldLeaveTheAddProviderMethodUndecorated()
-    {
-        $provider = $this->getMockForAbstractClass('ZfcRbac\\Provider\\ProviderInterface');
-        $this->rbac->expects($this->once())
-                   ->method('addProvider')
-                   ->with($provider);
-
-        $this->assertSame($this->decorator, $this->decorator->addProvider($provider));
-    }
-
-    public function testShouldLeaveTheGetIdentityMethodUndecorated()
-    {
-        $identity = $this->getMockForAbstractClass('ZfcRbac\\Identity\\IdentityInterface');
-        $this->rbac->expects($this->once())
-                   ->method('getIdentity')
-                   ->will($this->returnValue($identity));
-
-        $this->assertSame($identity, $this->decorator->getIdentity());
-    }
-
-    public function testShouldLeaveTheSetIdentityMethodUndecorated()
-    {
-        $identity = $this->getMockForAbstractClass('ZfcRbac\\Identity\\IdentityInterface');
-        $this->rbac->expects($this->once())
-                   ->method('setIdentity')
-                   ->with($identity);
-
-        $this->assertSame($this->decorator, $this->decorator->setIdentity($identity));
-    }
-
-    public function testShouldLeaveTheGetRbacMethodUndecorated()
-    {
-        $rbac = $this->getMock('Zend\\Permissions\\Rbac\\Rbac');
-        $this->rbac->expects($this->once())
-                   ->method('getRbac')
-                   ->will($this->returnValue($rbac));
-
-        $this->assertSame($rbac, $this->decorator->getRbac());
-    }
-
-    public function testShouldLeaveTheGetOptionsMethodUndecorated()
-    {
-        $options = $this->getMock('Zfc\\Rbac\\RbacOptions');
-        $this->rbac->expects($this->once())
-                   ->method('getOptions')
-                   ->will($this->returnValue($options));
-
-        $this->assertSame($options, $this->decorator->getOptions());
     }
 }

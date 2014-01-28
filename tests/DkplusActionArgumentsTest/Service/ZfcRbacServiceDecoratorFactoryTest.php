@@ -8,17 +8,14 @@ class ZfcRbacServiceDecoratorFactoryTest extends TestCase
 {
     public function testShouldCreateAZfcRbacService()
     {
-        $options = array(
-            'identityProvider' => 'myIdentity'
-        );
-        $services = $this->getMockForAbstractClass('Zend\\ServiceManager\\ServiceLocatorInterface');
-        $services->expects($this->any())->method('has')->with('myIdentity')->will($this->returnValue(true));
+        $authService = $this->getMockBuilder('ZfcRbac\\Service\\AuthorizationService')
+                            ->disableOriginalConstructor()
+                            ->getMock();
+        $services    = $this->getMockForAbstractClass('Zend\\ServiceManager\\ServiceLocatorInterface');
         $services->expects($this->any())
                  ->method('get')
-                 ->will($this->returnValueMap(array(
-                                                   array('Configuration', array('zfcrbac' => $options)),
-                                                   array('identity', 'myIdentity'),
-                                              )));
+                 ->with('ZfcRbac\\Service\\AuthorizationService')
+                 ->will($this->returnValue($authService));
 
         $factory = new ZfcRbacServiceDecoratorFactory();
         $this->assertInstanceOf(

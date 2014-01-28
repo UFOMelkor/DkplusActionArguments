@@ -3,9 +3,8 @@ namespace DkplusActionArguments\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use ZfcRbac\Service\RbacFactory;
 
-class ZfcRbacServiceDecoratorFactory extends RbacFactory
+class ZfcRbacServiceDecoratorFactory implements FactoryInterface
 {
     /**
      * @param ServiceLocatorInterface $serviceLocator
@@ -13,7 +12,7 @@ class ZfcRbacServiceDecoratorFactory extends RbacFactory
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $rbacService = parent::createService($serviceLocator);
+        $rbacService = $serviceLocator->get('ZfcRbac\\Service\\AuthorizationService');
         return new ZfcRbacServiceDecorator($rbacService);
     }
 }
